@@ -14,7 +14,7 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    public function sign_up(Request $request)
     {
         // like var_dump but, we prevent the default flow of the page and print info
         // dd($request->email, $request->username, $request->password, $request->password_confirmation);
