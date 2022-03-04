@@ -15,6 +15,8 @@ class DashboardController extends Controller
     public function index()
     {
         // dd(auth()->user()); // ṕrint to check authenticated user
+        // dd(auth()->user()->posts); // print Collection of Posts from User
+
         return view('dashboard');
     }
 }

@@ -29,7 +29,7 @@ class LoginController extends Controller
             $request->remember
         );
 
-        if (!$is_authenticated)
+        if (! $is_authenticated)
         {
             // Sends an flash error message, so we can display in login page through session('{key}')
             return back()->with('login_failed', 'Invalid username or password');
