@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        // Only guests can access login page
+        $this->middleware(['guest']);
+    }
     public function index()
     {
         return view('auth.login');
@@ -20,7 +25,8 @@ class LoginController extends Controller
         ]);
 
         $is_authenticated = auth()->attempt(
-            $request->only('email', 'password')
+            $request->only('email', 'password'),
+            $request->remember
         );
 
         if (!$is_authenticated)
