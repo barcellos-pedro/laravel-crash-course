@@ -25,11 +25,10 @@
                     <p class="mb-2">{{ $post->body }}</p>
                 </div>
             @endforeach
-            <div>
+            <!-- Pagination -->
             {{ $posts->links() }}
-            </div>
         @else
-        <p>There ae no posts</p>
+        <p class="mt-2">There ae no posts</p>
         @endif
     </div>
 </div>
