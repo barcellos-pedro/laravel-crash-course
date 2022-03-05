@@ -12,4 +12,12 @@ class Post extends Model
     protected $fillable = [
         'body'
     ];
+
+    /**
+     * Many to one relationship
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

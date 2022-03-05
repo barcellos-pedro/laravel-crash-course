@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::get(); // get all posts in form of Collection
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function store(Request $request)
@@ -22,6 +24,8 @@ class PostController extends Controller
         //     'user_id' => auth()->id,
         //     'body' => $request->body
         // ]);
+
+        //or
 
         // Create Post from the signed user
         $request->user()->posts()->create([
