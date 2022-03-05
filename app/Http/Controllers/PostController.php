@@ -9,8 +9,15 @@ class PostController extends Controller
 {
     public function index()
     {
-        // $posts = Post::get(); // get all posts as Collection
-        $posts = Post::orderBy('created_at', 'desc')->paginate(2); // Pagination as Collection
+        // Get all posts as Collection
+        // $posts = Post::get();
+
+        // Pagination
+        // $posts = Post::orderBy('created_at', 'desc')->paginate(2);
+
+        // Eager loading
+        // Bundle data from queries as one, before we iterate through them
+        $posts = Post::with(['user', 'likes'])->orderBy('created_at', 'desc')->paginate(3);
 
         return view('posts.index', ['posts' => $posts]);
     }
