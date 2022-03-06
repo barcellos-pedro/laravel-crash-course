@@ -10,7 +10,7 @@ class UserPostController extends Controller
     public function index(User $user)
     {
         // Eager loading posts
-        $posts = $user->posts()->with(['user', 'likes'])->paginate(3);
+        $posts = $user->posts()->latest()->with(['user', 'likes'])->paginate(3);
 
         return view('users.posts.index', [
             'user' => $user,
