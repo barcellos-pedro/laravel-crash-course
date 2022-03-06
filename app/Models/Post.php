@@ -23,6 +23,15 @@ class Post extends Model
     }
 
     /**
+     * Check if the post is owned by user
+     * @return bool
+     */
+    public function ownedBy(User $user)
+    {
+        return $this->user_id === $user->id;
+    }
+
+    /**
      * Many to one relationship
      */
     public function user()

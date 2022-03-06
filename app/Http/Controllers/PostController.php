@@ -17,7 +17,7 @@ class PostController extends Controller
 
         // Eager loading
         // Bundle data from queries as one, before we iterate through them
-        $posts = Post::with(['user', 'likes'])->orderBy('created_at', 'desc')->paginate(3);
+        $posts = Post::with(['user', 'likes'])->latest()->paginate(3);
 
         return view('posts.index', ['posts' => $posts]);
     }
@@ -47,8 +47,10 @@ class PostController extends Controller
         return back();
     }
 
-    public function destroy(Post $post)
+    public function destroy(Post $post, Request $request)
     {
+        $this->authorize('delete', $post);
+        
         $post->delete();
 
         return back();

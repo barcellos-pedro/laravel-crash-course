@@ -38,11 +38,13 @@
                 <button type="submit" class="text-blue-500">👎🏻 Unlike</button>
             </form>
             @endif
+            @can('delete', $post)
             <form action="{{ route('posts.delete', $post) }}" method="post" class="inline ml-2">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="bg-red-500 text-white text-sm rounded p-2 font-medium">Delete</button>
             </form>
+            @endcan
             @endauth
         </div>
         @endforeach
