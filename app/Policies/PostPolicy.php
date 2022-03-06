@@ -20,6 +20,10 @@ class PostPolicy
         //
     }
 
+    /**
+     * Check if the post is owned by user to delete it
+     * @return bool
+     */
     public function delete(User $user, Post $post)
     {
         return $user->id === $post->user_id;
