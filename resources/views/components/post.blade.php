@@ -5,6 +5,7 @@
     <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
     <p class="my-2">{{ $post->body }}</p>
     <p class="inline mr-2">{{ $post->likes->count() }} {{ Str::plural('like', $post->likes) }}</p>
+    <!-- Post actions -->
     @auth
     @if (!$post->likedBy(auth()->user()))
     <form action="{{ route('posts.like', $post) }}" method="post" class="mr-2 inline">
