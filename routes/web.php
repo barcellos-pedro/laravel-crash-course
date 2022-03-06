@@ -39,5 +39,8 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 // Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
+Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.delete');
+
+// Posts Like/Unlike
 Route::post('/posts/{post}/like', [PostLikeController::class, 'store'])->name('posts.like');
 Route::delete('/posts/{post}/unlike', [PostLikeController::class, 'destroy'])->name('posts.unlike');

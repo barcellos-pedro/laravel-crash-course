@@ -29,7 +29,7 @@ class PostLikeController extends Controller
 
     public function destroy(Post $post, Request $request)
     {
-        // Unlike some post from the user's liked posts
+        // Unlike an post from the user's liked posts
         $request->user()->likes()->where('post_id', $post->id)->delete();
 
         return back();
