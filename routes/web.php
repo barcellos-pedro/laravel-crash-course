@@ -42,6 +42,9 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
 Route::delete('/posts/{post}/delete', [PostController::class, 'destroy'])->name('posts.delete');
 
+// Single post page
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.post');
+
 // Posts Like/Unlike
 Route::post('/posts/{post}/like', [PostLikeController::class, 'store'])->name('posts.like');
 Route::delete('/posts/{post}/unlike', [PostLikeController::class, 'destroy'])->name('posts.unlike');

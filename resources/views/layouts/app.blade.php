@@ -34,7 +34,6 @@
                 </form>
             </li>
             @endauth
-
             @guest
             <li>
                 <a href="{{ route('login') }}" class="p-3">Login</a>
