@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        // only signed in users can create (store) or delete (destroy) a post
+        // add middleware only to certain methods
+        $this->middleware(['auth'])->only(['store', 'destroy']);
+    }
+
     /**
      * Posts listing view
      */
